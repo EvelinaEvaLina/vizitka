@@ -531,8 +531,14 @@ footer{
     <div class="hero-text">
       <div class="badge"><span class="dot"></span>ИИ · МЛМ · Наставник</div>
       <h1>Меньше рутины.<br><span class="accent">Больше дохода.</span></h1>
-      <div class="position">
-        <b>Наставник по обучению ИИ МЛМ-предпринимателей,<br>эксперт по внедрению ИИ и ИИ-автоматизации в МЛМ</b>
+      <div class="position" style="
+        background:linear-gradient(120deg,rgba(155,108,255,.22),rgba(216,150,255,.18));
+        border-left:3px solid var(--violet-glow);
+        border-radius:0 14px 14px 0;
+        box-shadow:0 0 28px rgba(155,108,255,.35), 0 0 60px rgba(216,150,255,.15), inset 0 0 20px rgba(155,108,255,.08);
+        padding:16px 20px;
+      ">
+        <b style="color:var(--ink);text-shadow:0 0 18px rgba(180,148,255,.7);">Наставник по обучению ИИ млм-предпринимателей,<br>эксперт по внедрению ИИ и ИИ-автоматизации в МЛМ</b>
       </div>
       <p class="lead">Помогаю <b>МЛМ-предпринимателям и экспертам</b> экономить время и силы — и увеличивать доход с помощью искусственного интеллекта.</p>
       <button class="btn" onclick="openModal()">
@@ -551,17 +557,22 @@ footer{
   <h2>Знаю МЛМ изнутри — и знаю, где здесь спрятано Ваше время</h2>
   <div class="about-grid">
     <div>
-      <p class="body">Я бывший сетевик с опытом <b>более 20 лет</b>. Достигла успеха в МЛМ-бизнесе за счёт грамотного продвижения в социальных сетях. Затем стала куратором МЛМ-экспертов и создателем собственных программ для МЛМ-предпринимателей.</p>
-      <p class="body" style="margin-top:14px">Работала лично и с командами, с новичками и топ-лидерами. Сегодня занимаюсь <b>обучением ИИ</b>, <b>внедрением его в бизнес-процессы и онлайн-продвижение сетевого бизнеса</b>, а также предлагаю варианты <b>ИИ-автоматизации</b>.</p>
+      <p class="body">Я бывший сетевик с опытом <b>более 20 лет</b>.</p>
+
+      <p class="body">Достигла успеха в МЛМ-бизнесе за счёт грамотного продвижения в социальных сетях. Затем стала куратором МЛМ-экспертов и создателем собственных программ для МЛМ-предпринимателей.</p>
+
+      <p class="body">Работала лично и с командами, с новичками и топ-лидерами.</p>
+
+      <p class="body">Сегодня занимаюсь <b>обучением ИИ</b>, <b>внедрением его в бизнес-процессы и онлайн-продвижение сетевого бизнеса</b>, а также предлагаю варианты <b>ИИ-автоматизации</b>.</p>
+
       <div class="stats">
         <div class="stat"><span class="num" data-target="20">0</span><span class="lbl">лет в МЛМ</span></div>
         <div class="stat"><span class="num" data-target="68">0</span><span class="lbl">клиентов</span></div>
         <div class="stat"><span class="num" data-target="5">0</span><span class="lbl">МЛМ-команд</span></div>
       </div>
     </div>
-    <div class="about-photos">
-      <img src="я 4.jpg" alt="Эвелина Врублевская">
-      <img src="я10.jpg" alt="Эвелина Врублевская">
+    <div class="about-photos" style="grid-template-columns:1fr">
+      <img src="я 4.jpg" alt="Эвелина Врублевская" style="margin-top:0;aspect-ratio:3/4">
     </div>
   </div>
 </section>
@@ -574,7 +585,7 @@ footer{
     <div class="acc-item open">
       <button class="acc-head" onclick="toggleAcc(this)">
         <span class="ico">✕</span>
-        <span>Быть и маркетологом, и копирайтером, и рекрутером одновременно</span>
+        <span>Стараетесь быть одновременно и маркетологом, и копирайтером, и рекрутером</span>
         <span class="acc-arrow">▾</span>
       </button>
       <div class="acc-body">
@@ -598,7 +609,7 @@ footer{
         <span class="acc-arrow">▾</span>
       </button>
       <div class="acc-body">
-        <p>Инструментов много — применений ещё больше. Я покажу именно те связки, которые работают в МЛМ: от рекрутинга до сопровождения партнёров.</p>
+        <p>ИИ-инструментов действительно много — ChatGPT, Claude, Midjourney и десятки других. Но важно не «попробовать ИИ», а встроить его в конкретные задачи МЛМ: написание постов и скриптов, автоответы, рекрутинг, обучение партнёров. Я покажу именно те связки, которые уже работают в сетевом бизнесе.</p>
       </div>
     </div>
     <div class="acc-item">
@@ -689,7 +700,7 @@ footer{
 <section class="cta-block reveal" id="contacts">
   <div class="cta-photo-row">
     <div class="cta-photo-col">
-      <img src="визитка.jpg" alt="Эвелина Врублевская">
+      <img src="я10.jpg" alt="Эвелина Врублевская">
     </div>
     <div class="cta-content">
       <div class="eyebrow">Бесплатная консультация</div>
@@ -698,7 +709,7 @@ footer{
       <div class="plan">
         <div class="plan-item"><span>01</span>Разберём Вашу точку А и главные узкие места</div>
         <div class="plan-item"><span>02</span>Покажу, какие задачи ИИ закроет уже завтра</div>
-        <div class="plan-item"><span>03</span>Составим план быстрого внедрения под Вас или Вашу команду</div>
+        <div class="plan-item"><span>03</span>Составим быстрый план внедрения ИИ под Вас или Вашу команду</div>
       </div>
       <div class="contacts">
         <a class="contact" href="https://t.me/energia_uspeha" target="_blank" rel="noopener">
