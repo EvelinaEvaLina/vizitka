@@ -225,7 +225,16 @@ p.body b{color:var(--ink);font-weight:600}
   padding:0 22px;
 }
 .acc-item.open .acc-body{max-height:200px;padding:0 22px 20px}
-.acc-body p{font-size:14px;color:var(--ink-soft);line-height:1.65;padding-left:48px}
+.acc-body p{font-size:14px;color:var(--ink-soft);line-height:1.65;padding-left:48px;margin-bottom:6px}
+.acc-answer{
+  color:var(--violet-glow) !important;
+  font-weight:700 !important;
+  font-size:15px !important;
+  text-shadow:0 0 16px rgba(180,148,255,.5);
+  border-left:2px solid var(--violet-glow);
+  padding-left:14px !important;
+  margin-top:10px !important;
+}
 
 /* ══════════ CARDS (что даю) ══════════ */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
@@ -249,6 +258,15 @@ p.body b{color:var(--ink);font-weight:600}
 }
 .card h3{font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;margin-bottom:10px;color:var(--ink)}
 .card p{font-size:13px;color:var(--ink-soft);line-height:1.6}
+.card-line{
+  opacity:0;transform:translateY(12px);
+  transition:opacity .45s ease, transform .45s ease;
+  margin-bottom:6px !important;
+}
+.card-anim.in-view .card-line:nth-child(3){transition-delay:.1s}
+.card-anim.in-view .card-line:nth-child(4){transition-delay:.25s}
+.card-anim.in-view .card-line:nth-child(5){transition-delay:.4s}
+.card-anim.in-view .card-line{opacity:1;transform:translateY(0)}
 
 /* ══════════ FOR WHOM ══════════ */
 .for-list{list-style:none;margin-top:14px}
@@ -529,7 +547,7 @@ footer{
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="badge"><span class="dot"></span>ИИ · МЛМ · Наставник</div>
+      <div class="badge"><span class="dot"></span>ИИ · МЛМ · Наставник · ИИ-автоматизатор</div>
       <h1>Меньше рутины.<br><span class="accent">Больше дохода.</span></h1>
       <div class="position" style="
         background:linear-gradient(120deg,rgba(155,108,255,.22),rgba(216,150,255,.18));
@@ -589,7 +607,8 @@ footer{
         <span class="acc-arrow">▾</span>
       </button>
       <div class="acc-body">
-        <p>Вы не понимаете, как одновременно быть и <b>маркетологом</b>, и <b>копирайтером</b>, и <b>менеджером по продажам</b>, и <b>рекрутёром</b> — и при этом ещё успевать <b>растить команду</b> и работать с партнёрами. ИИ берёт на себя большую часть этих задач.</p>
+        <p>вы стараетесь одновременно быть и <b>маркетологом</b>, и <b>копирайтером</b>, и <b>менеджером по продажам</b>, и <b>рекрутёром</b> — и при этом ещё успевать <b>растить команду</b> и работать с партнёрами.</p>
+        <p class="acc-answer">→ ИИ берёт на себя большую часть этих задач.</p>
       </div>
     </div>
     <div class="acc-item">
@@ -599,7 +618,8 @@ footer{
         <span class="acc-arrow">▾</span>
       </button>
       <div class="acc-body">
-        <p>Контент, переписки и сторис пожирают дни — а результат не радует. С ИИ вы создаёте контент за 20 минут вместо 3 часов, а качество растёт.</p>
+        <p>Контент, переписки и сторис пожирают дни — а результат не радует.</p>
+        <p class="acc-answer">→ С ИИ вы создаёте контент за 20 минут вместо 3 часов, а качество растёт.</p>
       </div>
     </div>
     <div class="acc-item">
@@ -609,7 +629,8 @@ footer{
         <span class="acc-arrow">▾</span>
       </button>
       <div class="acc-body">
-        <p>ИИ-инструментов действительно много — ChatGPT, Claude, Midjourney и десятки других. Но важно не «попробовать ИИ», а встроить его в конкретные задачи МЛМ: написание постов и скриптов, автоответы, рекрутинг, обучение партнёров. Я покажу именно те связки, которые уже работают в сетевом бизнесе.</p>
+        <p>ИИ-инструментов действительно много — ChatGPT, Claude, Midjourney и десятки других. Но важно не «попробовать ИИ», а встроить его в конкретные задачи МЛМ: написание постов и скриптов, автоответы, рекрутинг, обучение партнёров.</p>
+        <p class="acc-answer">→ Я покажу именно те связки, которые уже работают в сетевом бизнесе.</p>
       </div>
     </div>
     <div class="acc-item">
@@ -619,7 +640,8 @@ footer{
         <span class="acc-arrow">▾</span>
       </button>
       <div class="acc-body">
-        <p>Масштаб без автоматизации = выгорание. Вы уже делаете «руками» максимум. Пора подключить ИИ-помощников и делать в 5 раз больше за то же время.</p>
+        <p>Масштаб без автоматизации = выгорание. вы уже делаете «руками» максимум.</p>
+        <p class="acc-answer">→ Пора подключить ИИ-помощников и делать в 5 раз больше за то же время.</p>
       </div>
     </div>
   </div>
@@ -630,20 +652,26 @@ footer{
   <div class="eyebrow">Что я даю</div>
   <h2>Три причины работать со мной</h2>
   <div class="cards">
-    <div class="card">
+    <div class="card card-anim">
       <span class="num">01</span>
       <h3>Личный опыт МЛМ</h3>
-      <p>Бывший сетевик с 20+ годами опыта. Достигла успеха через продвижение в соцсетях, была куратором экспертов и создавала программы для МЛМ-предпринимателей.</p>
+      <p class="card-line">Бывший сетевик с 20+ годами опыта в МЛМ.</p>
+      <p class="card-line">Достигла успеха через продвижение в соцсетях.</p>
+      <p class="card-line">Была куратором экспертов и создавала авторские программы для МЛМ-предпринимателей.</p>
     </div>
-    <div class="card">
+    <div class="card card-anim">
       <span class="num">02</span>
       <h3>Авторская методика</h3>
-      <p>Пошаговая система обучения и внедрения ИИ в бизнес-процессы и онлайн-продвижение сетевого — с применением Команды Нейро-помощников.</p>
+      <p class="card-line">Пошаговая система обучения и внедрения ИИ в бизнес-процессы.</p>
+      <p class="card-line">Онлайн-продвижение сетевого бизнеса с помощью ИИ.</p>
+      <p class="card-line">Применение Команды Нейро-помощников под конкретные задачи.</p>
     </div>
-    <div class="card">
+    <div class="card card-anim">
       <span class="num">03</span>
       <h3>Реальные кейсы</h3>
-      <p>Более 68 клиентов и 5 МЛМ-команд: от новичков до топ-лидеров. Реальный рост дохода, команды и охватов — не обещания, а цифры.</p>
+      <p class="card-line">Более 68 клиентов и 5 МЛМ-команд: от новичков до топ-лидеров.</p>
+      <p class="card-line">Реальный рост дохода, команды и охватов.</p>
+      <p class="card-line">Не обещания — цифры.</p>
     </div>
   </div>
 </section>
@@ -651,7 +679,7 @@ footer{
 <!-- ══ FOR WHOM ══ -->
 <section id="for-whom" class="reveal">
   <div class="eyebrow">Для кого</div>
-  <h2>Вы здесь, если Вы —</h2>
+  <h2>Вам ко мне, если вы —</h2>
   <ul class="for-list">
     <li>
       <span class="mark">✓</span>
@@ -707,9 +735,9 @@ footer{
       <h2>Хватит работать «руками» — пора работать с ИИ</h2>
       <p class="lead">На бесплатной встрече мы пройдём три шага:</p>
       <div class="plan">
-        <div class="plan-item"><span>01</span>Разберём Вашу точку А и главные узкие места</div>
+        <div class="plan-item"><span>01</span>Разберём вашу точку А и главные узкие места</div>
         <div class="plan-item"><span>02</span>Покажу, какие задачи ИИ закроет уже завтра</div>
-        <div class="plan-item"><span>03</span>Составим быстрый план внедрения ИИ под Вас или Вашу команду</div>
+        <div class="plan-item"><span>03</span>Составим быстрый план внедрения ИИ под вас или вашу команду</div>
       </div>
       <div class="contacts">
         <a class="contact" href="https://t.me/energia_uspeha" target="_blank" rel="noopener">
@@ -813,6 +841,12 @@ function toggleAcc(btn){
   document.querySelectorAll('.acc-item').forEach(i=>i.classList.remove('open'));
   if(!wasOpen)item.classList.add('open');
 }
+
+/* ── card lines anim ── */
+const cardIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');cardIO.unobserve(e.target)}});
+},{threshold:.25});
+document.querySelectorAll('.card-anim').forEach(el=>cardIO.observe(el));
 
 /* ── scroll reveal ── */
 const revealEls=document.querySelectorAll('.reveal');
