@@ -110,6 +110,15 @@ nav{
   margin-bottom:24px;font-weight:600;
 }
 .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--violet-light);box-shadow:0 0 12px var(--violet-light);animation:pulse 1.8s infinite}
+.hero-name{
+  font-family:'Unbounded',sans-serif;font-weight:800;
+  font-size:clamp(22px,4vw,32px);
+  background:linear-gradient(120deg,#fff 0%,var(--violet-glow) 60%,var(--pink) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  letter-spacing:-.01em;margin-bottom:10px;
+  text-shadow:none;
+  filter:drop-shadow(0 0 18px rgba(180,148,255,.55));
+}
 h1{
   font-family:'Unbounded',sans-serif;font-weight:800;letter-spacing:-.02em;
   font-size:clamp(30px,5.5vw,50px);line-height:1.05;margin-bottom:18px;
@@ -548,6 +557,7 @@ footer{
   <div class="hero-inner">
     <div class="hero-text">
       <div class="badge"><span class="dot"></span>ИИ · МЛМ · Наставник · ИИ-автоматизатор</div>
+      <div class="hero-name">Эвелина Врублевская</div>
       <h1>Меньше рутины.<br><span class="accent">Больше дохода.</span></h1>
       <div class="position" style="
         background:linear-gradient(120deg,rgba(155,108,255,.22),rgba(216,150,255,.18));
@@ -577,7 +587,9 @@ footer{
     <div>
       <p class="body">Я бывший сетевик с опытом <b>более 20 лет</b>.</p>
 
-      <p class="body">Достигла успеха в МЛМ-бизнесе за счёт грамотного продвижения в социальных сетях. Затем стала куратором МЛМ-экспертов и создателем собственных программ для МЛМ-предпринимателей.</p>
+      <p class="body">Достигла успеха в МЛМ-бизнесе за счёт грамотного продвижения в социальных сетях.</p>
+
+      <p class="body">Затем стала куратором МЛМ-экспертов и создателем собственных программ для МЛМ-предпринимателей.</p>
 
       <p class="body">Работала лично и с командами, с новичками и топ-лидерами.</p>
 
@@ -856,26 +868,28 @@ const io=new IntersectionObserver(entries=>{
 revealEls.forEach(el=>io.observe(el));
 
 /* ── counter ── */
-function animateCounter(el,target){
-  const suffix=target===20?'+':target===68?'+':'+';
-  let current=0;
-  const step=Math.ceil(target/40);
-  const t=setInterval(()=>{
-    current=Math.min(current+step,target);
-    el.textContent=current+suffix;
-    if(current>=target)clearInterval(t);
-  },40);
+function animateCounter(el, target){
+  const duration = 1800;
+  const start = performance.now();
+  function easeOutExpo(t){ return t===1 ? 1 : 1 - Math.pow(2, -10*t); }
+  function tick(now){
+    const elapsed = Math.min((now - start) / duration, 1);
+    const value = Math.floor(easeOutExpo(elapsed) * target);
+    el.textContent = value + '+';
+    if(elapsed < 1) requestAnimationFrame(tick);
+    else el.textContent = target + '+';
+  }
+  requestAnimationFrame(tick);
 }
-const statNums=document.querySelectorAll('.stat .num[data-target]');
-const sio=new IntersectionObserver(entries=>{
+const statNums = document.querySelectorAll('.stat .num[data-target]');
+const sio = new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      const el=e.target;
-      animateCounter(el,parseInt(el.dataset.target));
-      sio.unobserve(el);
+      animateCounter(e.target, parseInt(e.target.dataset.target));
+      sio.unobserve(e.target);
     }
   });
-},{threshold:.5});
+},{threshold:.4});
 statNums.forEach(el=>sio.observe(el));
 
 /* ══ QUIZ ══ */
