@@ -869,14 +869,17 @@ revealEls.forEach(el=>io.observe(el));
 
 /* ── counter ── */
 function animateCounter(el, target){
-  const duration = 1800;
-  const start = performance.now();
-  function easeOutExpo(t){ return t===1 ? 1 : 1 - Math.pow(2, -10*t); }
+  const duration = 2000;
+  const startTime = performance.now();
+  function easeInOutCubic(t){
+    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+  }
+  el.textContent = '0+';
   function tick(now){
-    const elapsed = Math.min((now - start) / duration, 1);
-    const value = Math.floor(easeOutExpo(elapsed) * target);
+    const t = Math.min((now - startTime) / duration, 1);
+    const value = Math.floor(easeInOutCubic(t) * target);
     el.textContent = value + '+';
-    if(elapsed < 1) requestAnimationFrame(tick);
+    if(t < 1) requestAnimationFrame(tick);
     else el.textContent = target + '+';
   }
   requestAnimationFrame(tick);
@@ -889,8 +892,8 @@ const sio = new IntersectionObserver(entries=>{
       sio.unobserve(e.target);
     }
   });
-},{threshold:.4});
-statNums.forEach(el=>sio.observe(el));
+},{threshold:.2,rootMargin:'0px 0px -60px 0px'});
+statNums.forEach(el => { el.textContent = '0+'; sio.observe(el); });
 
 /* ══ QUIZ ══ */
 const questions=[
